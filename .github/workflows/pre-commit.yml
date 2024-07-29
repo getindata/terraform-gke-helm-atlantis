@@ -1,0 +1,14 @@
+name: TF Pre-Commit
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  main:
+    uses: getindata/github-workflows/.github/workflows/tf-pre-commit.yml@v1
