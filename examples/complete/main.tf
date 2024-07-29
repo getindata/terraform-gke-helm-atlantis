@@ -1,9 +1,48 @@
-module "terraform_module_template" {
-  source  = "../../"
-  context = module.this.context
+module "terraform_helm_atlantis" {
+  source               = "../../"
+  kubernetes_namespace = "default"
+  name                 = "atlantis"
+  project_id           = "example"
+  repos = [
+    {
+      id                              = "/.*/"
+      allowed_overrides               = ["workflow", "delete_source_branch_on_merge"]
+      allow_custom_workflows          = true
+      allow_all_server_side_workflows = true
+    }
+  ]
 
-  example_var = "This is a example value."
-  sub_resource = {
-    example_var = "This is a example value of sub resource."
+  repos_common_config = {
+    apply_requirements = ["approved", "mergeable"]
+  }
+
+  workflows = {
+    terragrunt-basic-with-features = {
+      import = {
+        steps = []
+      }
+
+      checkov = {
+        enabled   = true,
+        soft_fail = true
+      }
+      infracost = {
+        enabled = true
+      }
+      check_gitlab_approvals = {
+        enabled = true
+      }
+      asdf = {
+        enabled = true
+      }
+    }
+  }
+
+  values = [file("./extra-values/values.yaml")]
+  app = {
+    name          = "atlantis"
+    force_update  = true
+    wait          = false
+    recreate_pods = false
   }
 }

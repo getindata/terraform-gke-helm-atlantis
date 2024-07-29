@@ -1,8 +1,11 @@
-module "terraform_module_template" {
-  source = "../../"
+module "terraform_helm_atlantis" {
+  source               = "../../"
+  kubernetes_namespace = "default"
+  name                 = "atlantis"
+  project_id           = "example"
 
-  example_var = "This is a example value."
-  sub_resource = {
-    example_var = "This is a example value of sub resource."
+  values = [file("./extra-values/values.yaml")]
+  app = {
+    name = "atlantis"
   }
 }
