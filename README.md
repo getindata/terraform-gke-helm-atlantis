@@ -1,15 +1,15 @@
-# Terraform Helm Atlantis
+# Terraform Gke Helm Atlantis
 
 <!--- Pick Cloud provider Badge -->
 <!---![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) -->
-<!---![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) -->
+![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
 <!---!![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) -->
 <!---![Snowflake](https://img.shields.io/badge/-SNOWFLAKE-249edc?style=for-the-badge&logo=snowflake&logoColor=white) -->
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 
 <!--- Replace repository name -->
-![License](https://badgen.net/github/license/getindata/terraform-helm-atlantis/)
-![Release](https://badgen.net/github/release/getindata/terraform-helm-atlantis/)
+![License](https://badgen.net/github/license/getindata/terraform-gke-helm-atlantis/)
+![Release](https://badgen.net/github/release/getindata/terraform-gke-helm-atlantis/)
 
 <p align="center">
   <img height="150" src="https://getindata.com/img/logo.svg">
@@ -18,7 +18,7 @@
 
 ---
 
-Terraform module for managing Atlantis 
+Terraform module for managing Atlantis on GKE Cluster
 
 Additionally, this module generates the configuration for Atlantis and uses this configuration in deployment
 
