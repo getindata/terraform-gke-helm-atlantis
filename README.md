@@ -137,7 +137,9 @@ module "terraform_helm_atlantis" {
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_terraform_gke_helm_release"></a> [terraform\_gke\_helm\_release](#output\_terraform\_gke\_helm\_release) | Terraform gke helm release module outputs |
 
 ## Providers
 
