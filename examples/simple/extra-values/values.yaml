@@ -1,0 +1,6 @@
+gitlab: {}
+# gitlab:
+#   user: foo
+#   token: bar
+#   secret: baz
+#   hostname: gitlab.your.org

@@ -1,36 +1,34 @@
-# Example resource that outputs the input value and 
-# echoes it's base64 encoded version locally 
+module "atlantis_repo_config" {
+  source  = "getindata/atlantis-repo-config/null"
+  version = "2.3.0"
 
-resource "null_resource" "output_input" {
-  count = local.enabled ? 1 : 0
+  repos               = var.repos
+  repos_common_config = var.repos_common_config
 
-  triggers = {
-    name  = local.name_from_descriptor
-    input = var.example_var
-  }
-
-  provisioner "local-exec" {
-    command = "echo ${var.example_var} | base64"
-  }
+  workflows = var.workflows
 }
 
-module "subresource_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0"
-  context = module.this.context
+module "terraform_gke_helm_release" {
+  context                    = module.this.context
+  source                     = "git::https://github.com/getindata/terraform-gke-helm-release.git?ref=v1.1.1"
+  kubernetes_namespace       = var.kubernetes_namespace
+  create_namespace           = true
+  project_id                 = var.project_id
+  name                       = var.app.name
+  service_account_value_path = "serviceAccount.name"
 
-  attributes = ["sub"]
-}
-
-resource "null_resource" "subresource" {
-  count = local.enabled ? 1 : 0
-
-  triggers = {
-    name  = local.subresource_name_from_descriptor
-    input = var.sub_resource.example_var
+  descriptor_formats = {
+    gcp-service-account = {
+      labels = ["namespace", "environment", "name"]
+      format = "sa-%v-%v-%v"
+    }
   }
+  values = concat([templatefile("${path.module}/template/values.yaml.tftpl", { repoConfig = indent(2, module.atlantis_repo_config.repos_config_yaml) })], var.values)
 
-  provisioner "local-exec" {
-    command = "echo ${var.sub_resource.example_var} | base64"
+  roles = ["roles/compute.admin"]
+
+  app = {
+    name  = var.app.name
+    chart = "atlantis"
   }
 }
