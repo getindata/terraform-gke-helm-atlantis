@@ -24,7 +24,7 @@ Additionally, this module generates the configuration for Atlantis and uses this
 
 ## USAGE BASIC
 ```terraform
-module "terraform_helm_atlantis" {
+module "terraform_gke_helm_atlantis" {
   source               = "getindata/terraform-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"
@@ -37,7 +37,7 @@ module "terraform_helm_atlantis" {
 ```
 ## USAGE ADVANCED
 ```terraform
-module "terraform_helm_atlantis" {
+module "terraform_gke_helm_atlantis" {
   source               = "getindata/terraform-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"

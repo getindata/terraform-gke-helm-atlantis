@@ -1,4 +1,4 @@
-module "terraform_helm_atlantis" {
+module "terraform_gke_helm_atlantis" {
   source               = "../../"
   kubernetes_namespace = "default"
   name                 = "atlantis"

@@ -2,7 +2,7 @@
 Webhook configuration
 https://www.runatlantis.io/docs/deployment.html#kubernetes-helm-chart
 ```terraform
-module "terraform_helm_atlantis" {
+module "terraform_gke_helm_atlantis" {
   source               = "getindata/terraform-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"
