@@ -1,9 +1,10 @@
 # Simple Example
 Webhook configuration
-https://www.runatlantis.io/docs/deployment.html#kubernetes-helm-chart
+https://www.runatlantis.io/docs/configuring-webhooks.html
+
 ```terraform
 module "terraform_gke_helm_atlantis" {
-  source               = "getindata/terraform-helm-atlantis"
+  source               = "getindata/terraform-gke-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"
   project_id           = "example"

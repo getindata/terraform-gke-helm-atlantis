@@ -25,7 +25,7 @@ Additionally, this module generates the configuration for Atlantis and uses this
 ## USAGE BASIC
 ```terraform
 module "terraform_gke_helm_atlantis" {
-  source               = "getindata/terraform-helm-atlantis"
+  source               = "getindata/terraform-gke-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"
   project_id           = "example"
@@ -38,7 +38,7 @@ module "terraform_gke_helm_atlantis" {
 ## USAGE ADVANCED
 ```terraform
 module "terraform_gke_helm_atlantis" {
-  source               = "getindata/terraform-helm-atlantis"
+  source               = "getindata/terraform-gke-helm-atlantis"
   kubernetes_namespace = "default"
   name                 = "atlantis"
   project_id           = "example"
@@ -132,7 +132,7 @@ module "terraform_gke_helm_atlantis" {
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_atlantis_repo_config"></a> [atlantis\_repo\_config](#module\_atlantis\_repo\_config) | getindata/atlantis-repo-config/null | 2.3.0 |
-| <a name="module_terraform_gke_helm_release"></a> [terraform\_gke\_helm\_release](#module\_terraform\_gke\_helm\_release) | git::https://github.com/getindata/terraform-gke-helm-release.git | v1.1.1 |
+| <a name="module_terraform_gke_helm_release"></a> [terraform\_gke\_helm\_release](#module\_terraform\_gke\_helm\_release) | getindata/helm-release/gke | 1.1.1 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
 ## Outputs
