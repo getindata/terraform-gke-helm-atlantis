@@ -30,6 +30,6 @@ module "terraform_gke_helm_release" {
 
   app = {
     name  = var.app.name
-    chart = "atlantis"
+    chart = var.app.chart
   }
 }
