@@ -29,7 +29,8 @@ module "terraform_gke_helm_release" {
   roles = ["roles/editor"]
 
   app = {
-    name  = var.app.name
-    chart = "atlantis"
+    name       = var.app.name
+    chart      = var.app.chart
+    repository = var.app.repository
   }
 }
