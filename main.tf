@@ -26,7 +26,7 @@ module "terraform_gke_helm_release" {
   }
   values = concat([templatefile("${path.module}/template/values.yaml.tftpl", { repoConfig = indent(2, module.atlantis_repo_config.repos_config_yaml) })], var.values)
 
-  roles = ["roles/editor"]
+  roles = var.role
 
   app = {
     name       = var.app.name

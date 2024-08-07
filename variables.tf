@@ -191,3 +191,9 @@ variable "project_id" {
   description = "GCP project ID"
   type        = string
 }
+
+variable "role" {
+  description = "Atlantis SA roles"
+  type        = list(string)
+  default     = ["roles/editor"]
+}
