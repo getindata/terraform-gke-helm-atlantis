@@ -32,5 +32,6 @@ module "terraform_gke_helm_release" {
     name       = var.app.name
     chart      = var.app.chart
     repository = var.app.repository
+    version    = var.app.version
   }
 }
